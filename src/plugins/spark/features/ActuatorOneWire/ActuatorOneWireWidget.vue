@@ -2,11 +2,11 @@
 import BlockWidget from '@/plugins/spark/components/BlockWidget';
 import Component from 'vue-class-component';
 import { getById } from './getters';
-import { ActuatorDS2413Block } from './state';
+import { ActuatorOneWireBlock } from './state';
 
 @Component
-export default class ActuatorDS2413Widget extends BlockWidget {
-  get block(): ActuatorDS2413Block {
+export default class ActuatorOneWireWidget extends BlockWidget {
+  get block(): ActuatorOneWireBlock {
     return getById(this.$store, this.serviceId, this.blockId);
   }
 
@@ -21,7 +21,7 @@ export default class ActuatorDS2413Widget extends BlockWidget {
 <template>
   <q-card dark class="text-white scroll">
     <q-dialog v-model="modalOpen" no-backdrop-dismiss>
-      <ActuatorDS2413Form v-if="modalOpen" v-bind="formProps"/>
+      <ActuatorOneWireForm v-if="modalOpen" v-bind="formProps"/>
     </q-dialog>
 
     <BlockWidgetToolbar :field="me" graph/>

@@ -9,7 +9,7 @@ export default class ActuatorPartCard extends PartCard {
       ...this.$props,
       types: [
         'ActuatorPin',
-        'ActuatorDS2413',
+        'ActuatorOneWire',
       ],
       blockServiceIdKey: 'actuatorServiceId',
       blockLinkKey: 'actuatorLink',

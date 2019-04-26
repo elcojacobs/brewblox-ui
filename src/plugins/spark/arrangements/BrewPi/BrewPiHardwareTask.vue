@@ -4,7 +4,7 @@ import WizardTaskBase from '@/components/Wizard/WizardTaskBase';
 import { blockValues } from '@/plugins/spark/store/getters';
 import { BrewPiConfig } from '@/plugins/spark/arrangements/BrewPi/state';
 import { typeName as actuatorPinType } from '@/plugins/spark/features/ActuatorPin/getters';
-import { typeName as actuatorDS2413Type } from '@/plugins/spark/features/ActuatorDS2413/getters';
+import { typeName as ActuatorOneWireType } from '@/plugins/spark/features/ActuatorOneWire/getters';
 import { typeName as sensorOneWireType } from '@/plugins/spark/features/TempSensorOneWire/getters';
 import { typeName as sensorMockType } from '@/plugins/spark/features/TempSensorMock/getters';
 import { fetchDiscoveredBlocks } from '@/plugins/spark/store/actions';
@@ -24,7 +24,7 @@ export default class BrewPiHardwareTask extends WizardTaskBase {
   }
 
   get pinOptions() {
-    const pinTypes = [actuatorPinType, actuatorDS2413Type];
+    const pinTypes = [actuatorPinType, ActuatorOneWireType];
     return blockValues(this.$store, this.cfg.serviceId)
       .filter(block => pinTypes.includes(block.type))
       .map(block => block.id);
@@ -119,7 +119,7 @@ export default class BrewPiHardwareTask extends WizardTaskBase {
           <q-tooltip>
             Example cases where a Block must be created and configured manually:
             <ul>
-              <li>When using DS2413 actuators.</li>
+              <li>When using OneWire Actuators.</li>
               <li>When using mock temperature sensors.</li>
             </ul>
           </q-tooltip>

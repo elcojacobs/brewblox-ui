@@ -1,14 +1,14 @@
 <script lang="ts">
 import { DS2413Link } from '@/helpers/units/KnownLinks';
 import BlockForm from '@/plugins/spark/components/BlockForm';
-import { ActuatorDS2413Block } from '@/plugins/spark/features/ActuatorDS2413/state';
+import { ActuatorOneWireBlock } from '@/plugins/spark/features/ActuatorOneWire/state';
 import Component from 'vue-class-component';
 import { channel } from './getters';
 
 @Component
-export default class ActuatorDS2413Form extends BlockForm {
-  get block(): ActuatorDS2413Block {
-    return this.blockField as ActuatorDS2413Block;
+export default class ActuatorOneWireForm extends BlockForm {
+  get block(): ActuatorOneWireBlock {
+    return this.blockField as ActuatorOneWireBlock;
   }
 
   get actuatorChannel() {

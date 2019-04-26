@@ -14,13 +14,20 @@ export default class DS2413Widget extends BlockWidget {
     return this.block.data.address;
   }
 
-  get pinState() {
-    return {
-      latchA: (this.block.data.state & 2) !== 0,
-      latchB: (this.block.data.state & 8) !== 0,
-      senseA: (this.block.data.state & 1) !== 0,
-      senseB: (this.block.data.state & 4) !== 0,
-    };
+  get latchA() {
+    return this.block.data.latches & 1;
+  }
+
+  get latchB() {
+    return this.block.data.latches & 2;
+  }
+
+  get pinA() {
+    return this.block.data.pins & 1;
+  }
+
+  get pinB() {
+    return this.block.data.pins & 2;
   }
 }
 </script>
@@ -38,16 +45,16 @@ export default class DS2413Widget extends BlockWidget {
         <q-item-section style="justify-content: flex-start">
           <q-item-label caption>Latches</q-item-label>
           <div>
-            <q-toggle :value="pinState.latchA" class="col-6" readonly label="Latch A"/>
-            <q-toggle :value="pinState.latchB" class="col-6" readonly label="Latch B"/>
+            <q-toggle :value="latchA" class="col-6" readonly label="Latch A"/>
+            <q-toggle :value="latchB" class="col-6" readonly label="Latch B"/>
           </div>
           <DrivenIndicator :block-id="block.id" :service-id="serviceId"/>
         </q-item-section>
         <q-item-section style="justify-content: flex-start">
           <q-item-label caption>Sensing</q-item-label>
           <div>
-            <q-toggle :value="pinState.senseA" class="col-6" readonly label="Sense A"/>
-            <q-toggle :value="pinState.senseB" class="col-6" readonly label="Sense B"/>
+            <q-toggle :value="pinA" class="col-6" readonly label="Sense A"/>
+            <q-toggle :value="pinB" class="col-6" readonly label="Sense B"/>
           </div>
         </q-item-section>
       </q-item>

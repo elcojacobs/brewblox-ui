@@ -1,6 +1,6 @@
 import { Feature } from '@/store/features/state';
 import ActuatorAnalogMock from './ActuatorAnalogMock';
-import ActuatorDS2413 from './ActuatorDS2413';
+import ActuatorOneWire from './ActuatorOneWire';
 import ActuatorOffset from './ActuatorOffset';
 import ActuatorPin from './ActuatorPin';
 import ActuatorPwm from './ActuatorPwm';
@@ -19,7 +19,7 @@ import TempSensorOneWire from './TempSensorOneWire';
 
 const features: { [id: string]: Feature } = {
   ActuatorAnalogMock,
-  ActuatorDS2413,
+  ActuatorOneWire,
   ActuatorOffset,
   ActuatorPin,
   ActuatorPwm,

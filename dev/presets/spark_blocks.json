@@ -323,7 +323,7 @@
       "groups": [
         0
       ],
-      "type": "ActuatorDS2413",
+      "type": "ActuatorOneWire",
       "data": {
         "channel": 1,
         "constrainedBy": {
@@ -426,7 +426,7 @@
       "groups": [
         0
       ],
-      "type": "ActuatorDS2413",
+      "type": "ActuatorOneWire",
       "data": {
         "channel": 1,
         "invert": true,
