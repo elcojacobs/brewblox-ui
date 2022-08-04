@@ -143,7 +143,7 @@ export async function applyMode(
     throw new Error('No heat PID defined');
   }
 
-  await sparkStore.patchBlock(setpoint, { settingEnabled: false });
+  await sparkStore.patchBlock(setpoint, { enabled: false });
   await sparkStore.patchBlock(profile, { targetId: bloxLink(setpoint.id) });
 
   // Disable all blocks driving target setpoint

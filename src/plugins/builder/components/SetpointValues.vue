@@ -65,7 +65,7 @@ export default defineComponent({
     const isUsed = computed<boolean>(
       () =>
         block.value !== null &&
-        block.value.data.settingEnabled &&
+        block.value.data.enabled &&
         sparkStore
           .blocksByService(serviceId)
           .filter(pidFilter)

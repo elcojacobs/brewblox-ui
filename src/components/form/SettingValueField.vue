@@ -71,16 +71,8 @@ export default defineComponent({
 .grid-icon
   grid-column-end: span 1
   grid-column-start: 1
-  height: 30px
-  width: 30px
   margin-left: auto
   margin-right: auto
-
-  > *
-    min-width: 100%
-    min-height: 100%
-    width: 100%
-    height: 100%
 
 .grid-value
   grid-column-end: span 2

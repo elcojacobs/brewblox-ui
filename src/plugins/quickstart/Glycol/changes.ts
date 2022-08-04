@@ -80,7 +80,7 @@ export function defineCreatedBlocks(config: GlycolConfig): Block[] {
       data: {
         sensorId: bloxLink(names.beerSensor),
         storedSetting: beerSetting,
-        settingEnabled: true,
+        enabled: true,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),
@@ -247,7 +247,7 @@ export function defineCreatedBlocks(config: GlycolConfig): Block[] {
         data: {
           sensorId: bloxLink(names.glycolSensor),
           storedSetting: glycolSetting,
-          settingEnabled: true,
+          enabled: true,
           setting: tempQty(null),
           value: tempQty(null),
           valueUnfiltered: tempQty(null),

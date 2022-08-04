@@ -70,7 +70,7 @@ export function defineCreatedBlocks(config: FermentConfig): Block[] {
       data: {
         sensorId: bloxLink(names.fridgeSensor),
         storedSetting: fridgeSetting,
-        settingEnabled: true,
+        enabled: true,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),
@@ -86,7 +86,7 @@ export function defineCreatedBlocks(config: FermentConfig): Block[] {
       data: {
         sensorId: bloxLink(names.beerSensor),
         storedSetting: beerSetting,
-        settingEnabled: true,
+        enabled: true,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),

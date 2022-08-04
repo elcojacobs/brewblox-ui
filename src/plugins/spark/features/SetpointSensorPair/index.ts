@@ -30,7 +30,7 @@ const plugin: Plugin = {
         value: tempQty(null),
         valueUnfiltered: tempQty(null),
         resetFilter: false,
-        settingEnabled: true,
+        enabled: true,
         filter: FilterChoice.FILTER_15s,
         filterThreshold: deltaTempQty(5),
       }),
@@ -46,7 +46,7 @@ const plugin: Plugin = {
       },
       {
         type,
-        key: 'settingEnabled',
+        key: 'enabled',
         title: 'Enabled',
         component: 'BoolValEdit',
         generate: () => true,

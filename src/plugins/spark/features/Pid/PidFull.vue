@@ -166,7 +166,7 @@ export default defineComponent({
           v-if="inputBlock !== null"
           v-model="inputStoredSetting"
           :readonly="inputDriven"
-          :class="[{ darkened: !inputBlock.data.settingEnabled }, 'col']"
+          :class="[{ darkened: !inputBlock.data.enabled }, 'col']"
           label="Setting"
           tag="b"
         />

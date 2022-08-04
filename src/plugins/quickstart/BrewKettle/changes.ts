@@ -52,7 +52,7 @@ export function defineCreatedBlocks(config: BrewKettleConfig): Block[] {
       data: {
         sensorId: bloxLink(names.kettleSensor),
         storedSetting: tempQty(70),
-        settingEnabled: false,
+        enabled: false,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),

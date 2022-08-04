@@ -55,7 +55,7 @@ export function defineCreatedBlocks(config: FridgeConfig): Block[] {
       data: {
         sensorId: bloxLink(names.fridgeSensor),
         storedSetting: fridgeSetting,
-        settingEnabled: true,
+        enabled: true,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),

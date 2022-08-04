@@ -64,7 +64,7 @@ export default defineComponent({
 
     function confirm(): void {
       sparkStore.patchBlock(setpoint, {
-        settingEnabled: setpointEnabled.value,
+        enabled: setpointEnabled.value,
         storedSetting: setpointSetting.value,
       });
       sparkStore.patchBlock(profile, {

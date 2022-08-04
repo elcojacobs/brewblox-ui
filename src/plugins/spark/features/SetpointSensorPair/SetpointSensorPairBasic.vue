@@ -57,8 +57,16 @@ export default defineComponent({
         <template #value>
           {{ prettyQty(block.data.value) }}
         </template>
+        <template #settingIcon>
+          <q-icon
+            :class="[block.data.setting.value == null && 'fade-6']"
+            name="mdi-unfold-more-horizontal"
+          />
+        </template>
         <template #setting>
-          {{ prettyQty(block.data.storedSetting) }}
+          <span :class="[block.data.setting.value == null && 'fade-6']">
+            {{ prettyQty(block.data.storedSetting) }}
+          </span>
         </template>
       </SettingValueField>
 

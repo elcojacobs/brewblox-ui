@@ -102,7 +102,7 @@ export function defineCreatedBlocks(config: HermsConfig): Block[] {
       data: {
         sensorId: bloxLink(names.hltSensor),
         storedSetting: tempQty(70),
-        settingEnabled: false,
+        enabled: false,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),
@@ -118,7 +118,7 @@ export function defineCreatedBlocks(config: HermsConfig): Block[] {
       data: {
         sensorId: bloxLink(names.mtSensor),
         storedSetting: tempQty(67),
-        settingEnabled: false,
+        enabled: false,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),
@@ -134,7 +134,7 @@ export function defineCreatedBlocks(config: HermsConfig): Block[] {
       data: {
         sensorId: bloxLink(names.bkSensor),
         storedSetting: tempQty(70),
-        settingEnabled: false,
+        enabled: false,
         setting: tempQty(null),
         value: tempQty(null),
         valueUnfiltered: tempQty(null),
@@ -377,21 +377,21 @@ export function defineWidgets(
               id: nanoid(),
               serviceId,
               blockId: names.hltSetpoint,
-              data: { settingEnabled: false },
+              data: { enabled: false },
               confirmed: {},
             }),
             typed<BlockChange<SetpointSensorPairBlock>>({
               id: nanoid(),
               serviceId,
               blockId: names.mtSetpoint,
-              data: { settingEnabled: false },
+              data: { enabled: false },
               confirmed: {},
             }),
             typed<BlockChange<SetpointSensorPairBlock>>({
               id: nanoid(),
               serviceId,
               blockId: names.bkSetpoint,
-              data: { settingEnabled: false },
+              data: { enabled: false },
               confirmed: {},
             }),
           ],
@@ -404,7 +404,7 @@ export function defineWidgets(
               id: nanoid(),
               serviceId,
               blockId: names.mtSetpoint,
-              data: { settingEnabled: false },
+              data: { enabled: false },
               confirmed: {},
             }),
             typed<BlockChange<SetpointSensorPairBlock>>({
@@ -412,7 +412,7 @@ export function defineWidgets(
               serviceId,
               blockId: names.hltSetpoint,
               data: {
-                settingEnabled: true,
+                enabled: true,
                 storedSetting: tempQty(70),
               },
               confirmed: {
@@ -430,7 +430,7 @@ export function defineWidgets(
               serviceId,
               blockId: names.mtSetpoint,
               data: {
-                settingEnabled: true,
+                enabled: true,
                 storedSetting: tempQty(66.7),
               },
               confirmed: {
@@ -457,7 +457,7 @@ export function defineWidgets(
               serviceId,
               blockId: names.bkSetpoint,
               data: {
-                settingEnabled: true,
+                enabled: true,
                 storedSetting: tempQty(100),
               },
               confirmed: {

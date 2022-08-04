@@ -47,7 +47,7 @@ export default defineComponent({
       <QuantityField
         :model-value="block.data.storedSetting"
         :readonly="isDriven"
-        :class="{ darkened: !block.data.settingEnabled }"
+        :class="{ darkened: !block.data.enabled }"
         title="Setting"
         label="Setting"
         tag="big"
