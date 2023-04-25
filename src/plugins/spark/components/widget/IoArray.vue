@@ -49,6 +49,9 @@ export default defineComponent({
         if (c.capabilities & ChannelCapabilities.CHAN_SUPPORTS_PWM_100HZ) {
           compatibleTypes.push(BlockOrIntfType.FastPwm);
         }
+        if (c.capabilities & ChannelCapabilities.CHAN_SUPPORTS_DIGITAL_INPUT) {
+          compatibleTypes.push(BlockOrIntfType.DigitalInput);
+        }
         return {
           ...c,
           compatibleTypes,

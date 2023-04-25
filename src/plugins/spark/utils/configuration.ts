@@ -189,6 +189,7 @@ export async function setExclusiveChannelActuator(
       BlockIntfType.IoDriverInterface,
     )
   ) {
+    console.error("Can't set channel on non-IoDriverInterface block", actuator);
     return;
   }
 

@@ -44,7 +44,16 @@ export default defineComponent({
 
     const errors = computed<string[]>(() => {
       const values: string[] = [];
-      const { moduleStatus, overCurrent } = block.value.data;
+      const { moduleStatus, overCurrent, openLoad } = block.value.data;
+      if (openLoad !== GpioPins.NONE) {
+        values.push(
+          'WARNING: No load connected to pin ' +
+            [...Array(8).keys()]
+              .filter((i) => (1 << i) & openLoad)
+              .map((i) => `${i + 1}`)
+              .join(', '),
+        );
+      }
       if (overCurrent !== GpioPins.NONE) {
         values.push(
           'ERROR: Overcurrent on pin ' +

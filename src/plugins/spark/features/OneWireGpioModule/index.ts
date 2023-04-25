@@ -40,8 +40,36 @@ const plugin: Plugin = {
       }),
       analyze: (block: OneWireGpioModuleBlock) => {
         const { moduleStatus } = block.data;
-        if (moduleStatus != GpioModuleStatus.NONE) {
+        let warning = false;
+        let error = false;
+        if (moduleStatus & GpioModuleStatus.OVERCURRENT) {
+          error = true;
+        }
+        if (moduleStatus & GpioModuleStatus.OPEN_LOAD) {
+          warning = true;
+        }
+        if (moduleStatus & GpioModuleStatus.OVERVOLTAGE) {
+          error = true;
+        }
+        if (moduleStatus & GpioModuleStatus.UNDERVOLTAGE_LOCKOUT) {
+          warning = true;
+        }
+        if (moduleStatus & GpioModuleStatus.OVERTEMPERATURE_SHUTDOWN) {
+          error = true;
+        } else if (moduleStatus & GpioModuleStatus.OVERTEMPERATURE_WARNING) {
+          warning = true;
+        }
+        if (moduleStatus & GpioModuleStatus.POWER_ON_RESET) {
+          error = true;
+        }
+        if (moduleStatus & GpioModuleStatus.SPI_ERROR) {
+          error = true;
+        }
+        if (error) {
           return 'Invalid';
+        }
+        if (warning) {
+          return 'Inactive';
         }
         return 'Active';
       },

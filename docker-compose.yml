@@ -5,6 +5,10 @@ services:
     image: ghcr.io/brewblox/mosquitto:develop
     labels:
       - traefik.http.services.eventbus.loadbalancer.server.port=15675
+    volumes:
+      - type: bind
+        source: ${BREWBLOX_CACHE_DIR}/mosquitto
+        target: /mosquitto/include
 
   victoria:
     image: victoriametrics/victoria-metrics:v1.88.0

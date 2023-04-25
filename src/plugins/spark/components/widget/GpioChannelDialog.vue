@@ -17,8 +17,16 @@ type EditingKind =
   | 'SOLENOID'
   | 'MECH_RELAY'
   | 'GROUND'
-  | 'POWER';
-type EditingMode = 'BOTH' | 'PLUS' | 'MINUS' | 'BIDIRECTIONAL' | 'NONE';
+  | 'POWER'
+  | 'SWITCH';
+type EditingMode =
+  | 'BOTH'
+  | 'PLUS'
+  | 'MINUS'
+  | 'BIDIRECTIONAL'
+  | 'NONE'
+  | 'TO_MINUS'
+  | 'TO_PLUS';
 
 interface EditingChannel {
   name: string;
@@ -40,6 +48,8 @@ function inferEditingKind({ deviceType }: GpioModuleChannel): EditingKind {
     return 'POWER';
   } else if (deviceType.startsWith('GPIO_DEV_GND')) {
     return 'GROUND';
+  } else if (deviceType.startsWith('GPIO_DEV_SWITCH')) {
+    return 'SWITCH';
   } else {
     return 'UNKNOWN';
   }
@@ -54,6 +64,10 @@ function inferEditingMode({ deviceType }: GpioModuleChannel): EditingMode {
     return 'MINUS';
   } else if (/(POWER|GND)_1P/.test(deviceType)) {
     return 'NONE';
+  } else if (/_TO_GND/.test(deviceType)) {
+    return 'TO_MINUS';
+  } else if (/_TO_SUPPLY/.test(deviceType)) {
+    return 'TO_PLUS';
   } else {
     return 'BOTH';
   }
@@ -111,7 +125,16 @@ function inferChannelDeviceType({
   } else if (kind === 'GROUND') {
     // Mode is always NONE
     return GpioDeviceType.GPIO_DEV_GND_1P;
+  } else if (kind === 'SWITCH') {
+    if (mode == 'BOTH') {
+      return GpioDeviceType.GPIO_DEV_SWITCH_2P;
+    } else if (mode === 'TO_MINUS') {
+      return GpioDeviceType.GPIO_DEV_SWITCH_1P_EXTERNAL_GND;
+    } else if (mode === 'TO_PLUS') {
+      return GpioDeviceType.GPIO_DEV_SWITCH_1P_EXTERNAL_PWR;
+    }
   }
+  console.error('Invalid combination of channel type and mode');
   // Return NONE for all invalid combinations of kind and mode
   return GpioDeviceType.GPIO_DEV_NONE;
 }
@@ -152,11 +175,19 @@ export default defineComponent({
       { value: 'MECH_RELAY', label: 'Mechanical Relay' },
       { value: 'POWER', label: 'Power (always on)' },
       { value: 'GROUND', label: 'Ground' },
+      { value: 'SWITCH', label: 'Switch' },
     ];
 
     const modeOpts = computed<SelectOption<EditingMode>[]>(() => {
       if (local.kind === 'POWER' || local.kind === 'GROUND') {
         return [{ value: 'NONE', label: 'N/A' }];
+      }
+      if (local.kind === 'SWITCH') {
+        return [
+          { value: 'BOTH', label: 'Between 2 pins' },
+          { value: 'TO_MINUS', label: 'From pin to -' },
+          { value: 'TO_PLUS', label: 'From pin to +' },
+        ];
       }
 
       const opts: SelectOption<EditingMode>[] = [
