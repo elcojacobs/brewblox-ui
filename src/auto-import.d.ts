@@ -1,16 +1,10 @@
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    WizardDialog: typeof import('src/plugins/wizardry/components/WizardDialog.vue').default;
-    WizardBody: typeof import('src/plugins/wizardry/components/WizardBody.vue').default;
-    WidgetWizardPicker: typeof import('src/plugins/wizardry/components/WidgetWizardPicker.vue').default;
-    SystemBlockWidgetWizard: typeof import('src/plugins/wizardry/components/SystemBlockWidgetWizard.vue').default;
-    QuickstartWizardPicker: typeof import('src/plugins/wizardry/components/QuickstartWizardPicker.vue').default;
-    ImportWizard: typeof import('src/plugins/wizardry/components/ImportWizard.vue').default;
-    GenericWidgetWizard: typeof import('src/plugins/wizardry/components/GenericWidgetWizard.vue').default;
-    DashboardWizard: typeof import('src/plugins/wizardry/components/DashboardWizard.vue').default;
-    BlockWizard: typeof import('src/plugins/wizardry/components/BlockWizard.vue').default;
-    BlockWidgetWizard: typeof import('src/plugins/wizardry/components/BlockWidgetWizard.vue').default;
-    BlockDiscoveryWizard: typeof import('src/plugins/wizardry/components/BlockDiscoveryWizard.vue').default;
+    WidgetWizardDialog: typeof import('src/plugins/wizardry/components/WidgetWizardDialog.vue').default;
+    QuickstartWizardDialog: typeof import('src/plugins/wizardry/components/QuickstartWizardDialog.vue').default;
+    GenericWidgetEditor: typeof import('src/plugins/wizardry/components/GenericWidgetEditor.vue').default;
+    BlockWizardDialog: typeof import('src/plugins/wizardry/components/BlockWizardDialog.vue').default;
+    BlockWidgetEditor: typeof import('src/plugins/wizardry/components/BlockWidgetEditor.vue').default;
     TiltValues: typeof import('src/plugins/tilt/components/TiltValues.vue').default;
     TiltPage: typeof import('src/plugins/tilt/components/TiltPage.vue').default;
     TiltActions: typeof import('src/plugins/tilt/components/TiltActions.vue').default;
@@ -21,13 +15,14 @@ declare module '@vue/runtime-core' {
     OneWireGpioEditor: typeof import('src/plugins/spark/components/widget/OneWireGpioEditor.vue').default;
     IoArray: typeof import('src/plugins/spark/components/widget/IoArray.vue').default;
     GpioChannelDialog: typeof import('src/plugins/spark/components/widget/GpioChannelDialog.vue').default;
+    BlockWidgetWrapper: typeof import('src/plugins/spark/components/widget/BlockWidgetWrapper.vue').default;
     BlockGraph: typeof import('src/plugins/spark/components/widget/BlockGraph.vue').default;
     BlockWidgetToolbar: typeof import('src/plugins/spark/components/toolbar/BlockWidgetToolbar.vue').default;
     BlockActions: typeof import('src/plugins/spark/components/toolbar/BlockActions.vue').default;
-    SparkWifiMenu: typeof import('src/plugins/spark/components/menu/SparkWifiMenu.vue').default;
+    SparkWifiDialog: typeof import('src/plugins/spark/components/menu/SparkWifiDialog.vue').default;
     SparkParticleWifiCard: typeof import('src/plugins/spark/components/menu/SparkParticleWifiCard.vue').default;
     SparkEspWifiCard: typeof import('src/plugins/spark/components/menu/SparkEspWifiCard.vue').default;
-    SparkBackupMenu: typeof import('src/plugins/spark/components/menu/SparkBackupMenu.vue').default;
+    SparkBackupDialog: typeof import('src/plugins/spark/components/menu/SparkBackupDialog.vue').default;
     FirmwareUpdateDialog: typeof import('src/plugins/spark/components/menu/FirmwareUpdateDialog.vue').default;
     BlockJsonDialog: typeof import('src/plugins/spark/components/menu/BlockJsonDialog.vue').default;
     StringValEdit: typeof import('src/plugins/spark/components/form/StringValEdit.vue').default;
@@ -53,6 +48,7 @@ declare module '@vue/runtime-core' {
     AnalogConstraintsValEdit: typeof import('src/plugins/spark/components/form/AnalogConstraintsValEdit.vue').default;
     AnalogConstraintsField: typeof import('src/plugins/spark/components/form/AnalogConstraintsField.vue').default;
     AnalogConstraintsEditor: typeof import('src/plugins/spark/components/form/AnalogConstraintsEditor.vue').default;
+    WizardCard: typeof import('src/plugins/quickstart/components/WizardCard.vue').default;
     QuickstartTaskMaster: typeof import('src/plugins/quickstart/components/QuickstartTaskMaster.vue').default;
     QuickstartServiceTask: typeof import('src/plugins/quickstart/components/QuickstartServiceTask.vue').default;
     QuickstartSensorField: typeof import('src/plugins/quickstart/components/QuickstartSensorField.vue').default;
@@ -103,8 +99,9 @@ declare module '@vue/runtime-core' {
     BuilderActions: typeof import('src/plugins/builder/components/BuilderActions.vue').default;
     BlockStatusSvg: typeof import('src/plugins/builder/components/BlockStatusSvg.vue').default;
     AnimatedArrows: typeof import('src/plugins/builder/components/AnimatedArrows.vue').default;
-    WidgetProvider: typeof import('src/components/widget/WidgetProvider.vue').default;
+    WidgetWrapper: typeof import('src/components/widget/WidgetWrapper.vue').default;
     WidgetDialog: typeof import('src/components/widget/WidgetDialog.vue').default;
+    InlineWidgetDialog: typeof import('src/components/widget/InlineWidgetDialog.vue').default;
     BlockWidgetDialog: typeof import('src/components/widget/BlockWidgetDialog.vue').default;
     WidgetToolbar: typeof import('src/components/toolbar/WidgetToolbar.vue').default;
     WidgetActions: typeof import('src/components/toolbar/WidgetActions.vue').default;
