@@ -1,11 +1,9 @@
 import { genericBlockFeature } from '@/plugins/spark/generic';
 import { useBlockSpecStore } from '@/plugins/spark/store';
 import { BlockFieldSpec, BlockSpec } from '@/plugins/spark/types';
-import { blockWidgetSelector } from '@/plugins/spark/utils/components';
-import {
-  enumHint,
-} from '@/plugins/spark/utils/formatting';
+import { enumHint } from '@/plugins/spark/utils/formatting';
 import { useFeatureStore, WidgetFeature } from '@/store/features';
+import { cref } from '@/utils/component-ref';
 import { bloxLink } from '@/utils/link';
 import {
   BlockIntfType,
@@ -17,6 +15,7 @@ import { Plugin } from 'vue';
 import widget from './DigitalInputWidget.vue';
 
 const type = BlockType.DigitalInput;
+const title = 'Digital Input';
 
 const plugin: Plugin = {
   install(app) {
@@ -25,6 +24,7 @@ const plugin: Plugin = {
 
     const blockSpec: BlockSpec<DigitalInputBlock> = {
       type,
+      title,
       generate: (): DigitalInputBlock['data'] => ({
         hwDevice: bloxLink(null, BlockIntfType.IoArrayInterface),
         channel: 0,
@@ -57,7 +57,7 @@ const plugin: Plugin = {
       id: type,
       title: 'Digital Input',
       role: 'Output',
-      component: blockWidgetSelector(app, widget, type),
+      component: cref(app, widget),
       widgetSize: {
         cols: 4,
         rows: 2,
